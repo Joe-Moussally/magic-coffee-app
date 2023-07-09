@@ -11,13 +11,14 @@ import { StatusBar } from "expo-status-bar"
 import useTheme from "../../../hooks/useTheme"
 
 // ** Icons Imports
-import { AntDesign } from "@expo/vector-icons"
+import { Ionicons } from "@expo/vector-icons"
 
 // ** Component Imports
 import Button from "../../../components/Button"
 import Typography from "../../../components/Typography"
 import { SafeAreaView } from "react-native-safe-area-context"
 import UserScreenHeader from "../../../components/UserScreenHeader"
+import Input from "../../../components/Input"
 
 const SignInScreen = () => {
   // ** Hooks
@@ -32,8 +33,19 @@ const SignInScreen = () => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <StatusBar style="dark" />
-      <UserScreenHeader title="Sign In" />
-      <Typography>ASD</Typography>
+      <UserScreenHeader title="Sign In" secondaryTitle="Welcome Back" />
+
+      <Input
+        placeholder="Email Address"
+        icon={<Ionicons name="ios-mail-outline" />}
+        error
+        errorMessage={"Required"}
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        icon={<Ionicons name="md-lock-open-outline" />}
+      />
     </SafeAreaView>
   )
 }
