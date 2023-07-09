@@ -4,15 +4,26 @@ import React from "react"
 // ** React Native Imports
 import { View, Image, StyleSheet } from "react-native"
 
+// ** Expo Imports
+import { StatusBar } from "expo-status-bar"
+
 // ** Icons Imports
 import { AntDesign } from "@expo/vector-icons"
+
+// ** Navigation Imports
+import { useNavigation } from "@react-navigation/native"
 
 // ** Components Imports
 import Button from "../../components/Button"
 import Typography from "../../components/Typography"
-import { StatusBar } from "expo-status-bar"
 
 const WelcomeScreen = () => {
+  const navigation = useNavigation()
+
+  const handleNextButtonPress = () => {
+    navigation.push("SignInScreen")
+  }
+
   return (
     <View style={styles.screenContainer}>
       <StatusBar style="light" />
@@ -46,6 +57,7 @@ const WelcomeScreen = () => {
         }}
         icon={<AntDesign name="arrowright" />}
         iconButton
+        onPress={handleNextButtonPress}
       />
     </View>
   )

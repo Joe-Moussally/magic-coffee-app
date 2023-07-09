@@ -36,6 +36,9 @@ const useTheme = () => {
         light: "",
         dark: ""
       }
+    },
+    spacing: {
+      screenPadding: 20
     }
   }
 }

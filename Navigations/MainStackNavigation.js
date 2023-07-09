@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 // ** Screens Imports
 import WelcomeScreen from "../screens/WelcomeScreen"
+import SignInScreen from "../screens/user/SignInScreen/SignInScreen"
 
 const Stack = createNativeStackNavigator()
 
@@ -23,6 +24,11 @@ const MainStackNavigation = () => {
           <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SignInScreen"
+            component={SignInScreen}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

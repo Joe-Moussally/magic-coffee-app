@@ -9,11 +9,13 @@ import useTheme from "../../hooks/useTheme"
 
 const Typography = ({
   fontSize = 20,
+  fontWeight = 200,
   center,
   color,
   horizontalSpacing,
   verticalSpacing,
   children,
+  title,
   style = {},
   rest
 }) => {
@@ -22,10 +24,11 @@ const Typography = ({
 
   const styles = StyleSheet.create({
     text: {
-      fontSize,
+      fontSize: title ? 37 : fontSize,
       color: color ?? theme.pallete.text.light,
       textAlign: center && "center",
-      fontWeight: 200,
+      fontWeight: title ? 500 : fontWeight,
+      title,
       marginTop: verticalSpacing,
       marginBottom: verticalSpacing,
       marginLeft: horizontalSpacing,

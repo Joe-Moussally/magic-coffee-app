@@ -4,6 +4,9 @@ import React from "react"
 // ** React Native Imports
 import { Text, TouchableOpacity } from "react-native"
 
+// ** Hooks Imports
+import useTheme from "../../hooks/useTheme"
+
 const iconButtonStyle = {
   width: 60,
   paddingVertical: 0,
@@ -11,12 +14,22 @@ const iconButtonStyle = {
   borderRadius: "50%"
 }
 
-const Button = ({ label, iconButton, icon, onPress = () => {}, style }) => {
+const Button = ({
+  label,
+  iconButton,
+  icon,
+  variant = "filled", // filled - outlined - blank
+  onPress = () => {},
+  style
+}) => {
+  // ** Hooks
+  const theme = useTheme()
+
   return (
     <TouchableOpacity
       onPress={onPress}
       style={{
-        backgroundColor: "#324A59",
+        backgroundColor: variant === "blank" ? null : "#324A59",
         paddingHorizontal: 30,
         borderRadius: "50%",
         height: 60,
@@ -37,7 +50,13 @@ const Button = ({ label, iconButton, icon, onPress = () => {}, style }) => {
           </Text>
         </>
       ) : (
-        React.cloneElement(icon, { color: "white", size: 24 })
+        React.cloneElement(icon, {
+          color:
+            variant === "blank"
+              ? theme.pallete.text.light
+              : theme.pallete.contrastText.light,
+          size: 24
+        })
       )}
     </TouchableOpacity>
   )
