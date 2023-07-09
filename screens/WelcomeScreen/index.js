@@ -38,7 +38,6 @@ const WelcomeScreen = () => {
       </Typography>
 
       <Button
-        label="Sign In"
         style={{
           marginTop: "auto",
           marginBottom: "20%",
@@ -46,7 +45,7 @@ const WelcomeScreen = () => {
           marginRight: 30
         }}
         icon={<AntDesign name="arrowright" />}
-        // iconButton
+        iconButton
       />
     </View>
   )
