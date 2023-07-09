@@ -4,9 +4,6 @@ import React from "react"
 // ** React Native Imports
 import { Text, TouchableOpacity } from "react-native"
 
-// ** Icons Imports
-import {} from "@expo/vector-icons"
-
 const iconButtonStyle = {
   width: 60,
   paddingVertical: 0,

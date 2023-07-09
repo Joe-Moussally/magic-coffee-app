@@ -1,20 +1,29 @@
-import { View, Text, StyleSheet } from "react-native"
+// ** React Imports
 import React from "react"
+
+// ** React Native Imports
+import { Text, StyleSheet } from "react-native"
+
+// ** Hooks Imports
+import useTheme from "../../hooks/useTheme"
 
 const Typography = ({
   fontSize = 20,
-  color = "#181D2D",
   center,
+  color,
   horizontalSpacing,
   verticalSpacing,
   children,
   style = {},
   rest
 }) => {
+  // ** Hooks
+  const theme = useTheme()
+
   const styles = StyleSheet.create({
     text: {
       fontSize,
-      color,
+      color: color ?? theme.pallete.text.light,
       textAlign: center && "center",
       fontWeight: 200,
       marginTop: verticalSpacing,

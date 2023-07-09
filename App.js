@@ -1,11 +1,14 @@
-import { View } from "react-native"
+// ** Components Imports
 import MainStackNavigation from "./Navigations/MainStackNavigation"
-import { ThemeProvider } from "./context/ThemeContext"
+
+// ** Redux Imports
+import { store } from "./redux/store"
+import { Provider } from "react-redux"
 
 export default function App() {
   return (
-    <ThemeProvider>
+    <Provider store={store}>
       <MainStackNavigation />
-    </ThemeProvider>
+    </Provider>
   )
 }
