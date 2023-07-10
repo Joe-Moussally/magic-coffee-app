@@ -18,7 +18,7 @@ const Button = ({
   label,
   iconButton,
   icon,
-  variant = "filled", // filled - outlined - blank
+  variant = "filled", // filled - outlined - blank - link
   onPress = () => {},
   style
 }) => {
@@ -29,7 +29,8 @@ const Button = ({
     <TouchableOpacity
       onPress={onPress}
       style={{
-        backgroundColor: variant === "blank" ? null : "#324A59",
+        backgroundColor:
+          variant === "blank" || variant === "link" ? null : "#324A59",
         paddingHorizontal: 30,
         borderRadius: "50%",
         height: 60,
@@ -44,8 +45,14 @@ const Button = ({
     >
       {!iconButton ? (
         <>
-          {React.cloneElement(icon, { color: "white", size: 24 })}
-          <Text style={{ color: "white", fontSize: 19, fontWeight: 700 }}>
+          {icon && React.cloneElement(icon, { color: "white", size: 24 })}
+          <Text
+            style={{
+              color: theme.pallete.text.main,
+              fontSize: 19,
+              fontWeight: 700
+            }}
+          >
             {label}
           </Text>
         </>

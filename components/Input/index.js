@@ -25,6 +25,7 @@ const Input = ({
   onChange = () => {},
   onBlur = () => {},
   onChangeText = () => {},
+  containerStyle = {},
   rest
 }) => {
   // ** States
@@ -69,7 +70,12 @@ const Input = ({
 
   return (
     <>
-      <View style={styles.mainContainer}>
+      <View
+        style={{
+          ...styles.mainContainer,
+          ...containerStyle
+        }}
+      >
         {icon && (
           <View style={styles.iconContainer}>
             {React.cloneElement(icon, {

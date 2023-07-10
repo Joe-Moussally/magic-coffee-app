@@ -9,13 +9,13 @@ import useTheme from "../../hooks/useTheme"
 
 const Typography = ({
   fontSize = 20,
-  fontWeight = 200,
+  fontWeight = "Outfit-Regular",
   center,
   color,
   horizontalSpacing,
   verticalSpacing,
   children,
-  title,
+  title = false,
   style = {},
   rest
 }) => {
@@ -27,12 +27,13 @@ const Typography = ({
       fontSize: title ? 37 : fontSize,
       color: color ?? theme.pallete.text.light,
       textAlign: center && "center",
-      fontWeight: title ? 500 : fontWeight,
-      title,
+      // fontWeight: title ? 500 : fontWeight,
+      fontFamily: title ? "Outfit-SemiBold" : fontWeight,
       marginTop: verticalSpacing,
       marginBottom: verticalSpacing,
       marginLeft: horizontalSpacing,
       marginRight: horizontalSpacing,
+      // fontFamily: "Outfit",
       ...style
     }
   })

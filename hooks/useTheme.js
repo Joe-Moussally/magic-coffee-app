@@ -41,7 +41,8 @@ const useTheme = () => {
       }
     },
     spacing: {
-      screenPadding: 20
+      screenPaddingVertical: 20,
+      screenPaddingHorizontal: 20
     }
   }
 }

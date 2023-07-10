@@ -45,7 +45,11 @@ const SignInScreen = () => {
   // ** Styles
   const styles = StyleSheet.create({
     screenContainer: {
-      padding: theme.spacing.screenPadding
+      paddingVertical: theme.spacing.screenPaddingVertical,
+      paddingHorizontal: theme.spacing.screenPaddingHorizontal
+    },
+    formContainer: {
+      marginHorizontal: 20
     }
   })
 
@@ -71,7 +75,7 @@ const SignInScreen = () => {
         onSubmit={handleLogin}
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
-          <>
+          <View style={styles.formContainer}>
             <Input
               onChangeText={handleChange("email")}
               onBlur={handleBlur("email")}
@@ -104,34 +108,10 @@ const SignInScreen = () => {
               iconButton
               onPress={handleSubmit}
             />
-          </>
+          </View>
         )}
       </Formik>
-      {/* <Input
-        placeholder="Email Address"
-        icon={<Ionicons name="ios-mail-outline" />}
-        error={errors.email}
-        onChangeText={setEmail}
-      />
-      <Input
-        type="password"
-        placeholder="Password"
-        error={errors.password}
-        icon={<Ionicons name="md-lock-open-outline" />}
-        onChangeText={setPassword}
-      />
-
-      <Button
-        style={{
-          marginTop: "auto",
-          marginBottom: "20%",
-          marginLeft: "auto",
-          marginRight: 30
-        }}
-        icon={<AntDesign name="arrowright" />}
-        iconButton
-        onPress={handleLogin}
-      /> */}
+      <Button label="Forgot Password?" variant="link" />
     </SafeAreaView>
   )
 }
