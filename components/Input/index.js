@@ -16,7 +16,17 @@ import { Feather } from "@expo/vector-icons"
 // ** Hooks Imports
 import useTheme from "../../hooks/useTheme"
 
-const Input = ({ type = "text", placeholder, icon, error, errorMessage }) => {
+const Input = ({
+  type = "text",
+  placeholder,
+  icon,
+  error,
+  value,
+  onChange = () => {},
+  onBlur = () => {},
+  onChangeText = () => {},
+  rest
+}) => {
   // ** States
   const [passwordShown, setPasswordShown] = useState(false)
 
@@ -70,8 +80,13 @@ const Input = ({ type = "text", placeholder, icon, error, errorMessage }) => {
         )}
         <TextInput
           style={styles.input}
-          secureTextEntry={!passwordShown}
+          secureTextEntry={type === "password" && !passwordShown}
           placeholder={placeholder}
+          onChange={onChange}
+          onBlur={onBlur}
+          onChangeText={onChangeText}
+          value={value}
+          {...rest}
         />
 
         {/* Show/Hide Password Button */}
@@ -85,7 +100,7 @@ const Input = ({ type = "text", placeholder, icon, error, errorMessage }) => {
           </TouchableOpacity>
         )}
       </View>
-      <Text style={styles.errorMessage}>{error && errorMessage}</Text>
+      <Text style={styles.errorMessage}>{error}</Text>
     </>
   )
 }
