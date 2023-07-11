@@ -2,7 +2,7 @@ const useTheme = () => {
   return {
     pallete: {
       text: {
-        main: "#fff",
+        main: "#181D2D",
         light: "#181D2D",
         dark: "#fff"
       },

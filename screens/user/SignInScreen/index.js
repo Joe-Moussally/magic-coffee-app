@@ -1,8 +1,8 @@
 // ** React Imports
-import React, { useState } from "react"
+import React from "react"
 
 // ** React Native Imports
-import { View, Text, StyleSheet } from "react-native"
+import { View, StyleSheet, Platform, KeyboardAvoidingView } from "react-native"
 
 // ** Expo Imports
 import { StatusBar } from "expo-status-bar"
@@ -34,11 +34,6 @@ const validationSchema = yup.object().shape({
 })
 
 const SignInScreen = () => {
-  // ** States
-  // const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
-  // const [errors, setErrors] = useState({})
-
   // ** Hooks
   const theme = useTheme()
 
@@ -46,19 +41,24 @@ const SignInScreen = () => {
   const styles = StyleSheet.create({
     screenContainer: {
       paddingVertical: theme.spacing.screenPaddingVertical,
-      paddingHorizontal: theme.spacing.screenPaddingHorizontal
+      paddingHorizontal: theme.spacing.screenPaddingHorizontal,
+      flex: 1
     },
     formContainer: {
       marginHorizontal: 20
+    },
+    newMemberView: {
+      display: "flex",
+      marginTop: "auto",
+      flexDirection: "row",
+      alignItems: "center"
     }
   })
 
   const handleLogin = async (values) => {
     try {
       await validationSchema.validate(values)
-      // Validation successful, perform login or submit form
-      // You can add your own logic here
-      Alert.alert("Success", "Form submitted successfully")
+      console.log("SUCCESS")
     } catch (error) {
       // Validation failed, display error message
       Alert.alert("Error", error.message)
@@ -67,51 +67,68 @@ const SignInScreen = () => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <StatusBar style="dark" />
-      <UserScreenHeader title="Sign In" secondaryTitle="Welcome Back" />
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        validationSchema={validationSchema}
-        onSubmit={handleLogin}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
       >
-        {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
-          <View style={styles.formContainer}>
-            <Input
-              onChangeText={handleChange("email")}
-              onBlur={handleBlur("email")}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              value={values.email}
-              error={errors.email}
-              placeholder="Email Address"
-              icon={<Ionicons name="ios-mail-outline" />}
-            />
+        <StatusBar style="dark" />
+        <UserScreenHeader title="Sign In" secondaryTitle="Welcome Back" />
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          validationSchema={validationSchema}
+          onSubmit={handleLogin}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
+            <View style={styles.formContainer}>
+              <Input
+                onChangeText={handleChange("email")}
+                onBlur={handleBlur("email")}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                value={values.email}
+                error={errors.email}
+                placeholder="Email Address"
+                icon={<Ionicons name="ios-mail-outline" />}
+              />
 
-            <Input
-              placeholder="Password"
-              onChangeText={handleChange("password")}
-              onBlur={handleBlur("password")}
-              value={values.password}
-              error={errors.password}
-              type="password"
-              icon={<Ionicons name="md-lock-open-outline" />}
-            />
+              <Input
+                placeholder="Password"
+                onChangeText={handleChange("password")}
+                onBlur={handleBlur("password")}
+                value={values.password}
+                error={errors.password}
+                type="password"
+                icon={<Ionicons name="md-lock-open-outline" />}
+              />
+              <Button
+                label="Forgot Password?"
+                variant="link"
+                style={{ marginBottom: 40 }}
+              />
+              <Button
+                style={{
+                  marginTop: "auto",
+                  marginBottom: "20%",
+                  marginLeft: "auto",
+                  marginRight: 30
+                }}
+                icon={<AntDesign name="arrowright" size={10} />}
+                label="Sign In"
+                onPress={handleSubmit}
+                iconPosition="right"
+              />
+            </View>
+          )}
+        </Formik>
 
-            <Button
-              style={{
-                marginTop: "auto",
-                marginBottom: "20%",
-                marginLeft: "auto",
-                marginRight: 30
-              }}
-              icon={<AntDesign name="arrowright" />}
-              iconButton
-              onPress={handleSubmit}
-            />
-          </View>
-        )}
-      </Formik>
-      <Button label="Forgot Password?" variant="link" />
+        {/* New member */}
+        <View style={styles.newMemberView}>
+          <Typography fontSize={18} style={{ color: theme.pallete.gray.main }}>
+            New memeber?
+          </Typography>
+          <Button variant="link" label="Sign Up" />
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }

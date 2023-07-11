@@ -2,10 +2,13 @@
 import React from "react"
 
 // ** React Native Imports
-import { Text, TouchableOpacity } from "react-native"
+import { TouchableOpacity } from "react-native"
 
 // ** Hooks Imports
 import useTheme from "../../hooks/useTheme"
+
+// ** Components Imports
+import Typography from "../Typography"
 
 const iconButtonStyle = {
   width: 60,
@@ -18,6 +21,7 @@ const Button = ({
   label,
   iconButton,
   icon,
+  iconPosition = "left", // left - right
   variant = "filled", // filled - outlined - blank - link
   onPress = () => {},
   style
@@ -45,19 +49,24 @@ const Button = ({
     >
       {!iconButton ? (
         <>
-          {icon && React.cloneElement(icon, { color: "white", size: 24 })}
-          <Text
+          {icon &&
+            iconPosition === "left" &&
+            React.cloneElement(icon, { color: "white", size: 20 })}
+          <Typography
             style={{
               color:
                 variant === "link" || variant === "blank"
                   ? theme.pallete.text.main
-                  : "red",
+                  : theme.pallete.contrastText.main,
               fontSize: 19,
-              fontWeight: 700
+              textDecorationLine: variant === "link" ? "underline" : null
             }}
           >
             {label}
-          </Text>
+          </Typography>
+          {icon &&
+            iconPosition === "right" &&
+            React.cloneElement(icon, { color: "white", size: 20 })}
         </>
       ) : (
         React.cloneElement(icon, {
