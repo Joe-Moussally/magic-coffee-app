@@ -9,7 +9,7 @@ import useTheme from "../../hooks/useTheme"
 
 const Typography = ({
   fontSize = 20,
-  fontWeight = "Outfit-Regular",
+  fontWeight = 400,
   center,
   color,
   horizontalSpacing,
@@ -27,8 +27,27 @@ const Typography = ({
       fontSize: title ? 37 : fontSize,
       color: color ?? theme.pallete.text.light,
       textAlign: center && "center",
-      // fontWeight: title ? 500 : fontWeight,
-      fontFamily: title ? "Outfit-SemiBold" : fontWeight,
+      fontFamily: title
+        ? "Outfit_600SemiBold"
+        : fontWeight === 100
+        ? "Outfit_100Thin"
+        : fontWeight === 200
+        ? "Outfit_200ExtraLight"
+        : fontWeight === 300
+        ? "Outfit_300Light"
+        : fontWeight === 400
+        ? "Outfit_400Regular"
+        : fontWeight === 500
+        ? "Outfit_500Medium"
+        : fontWeight === 600
+        ? "Outfit_600SemiBold"
+        : fontWeight === 700
+        ? "Outfit_700Bold"
+        : fontWeight === 800
+        ? "Outfit_800ExtraBold"
+        : fontWeight === 900
+        ? "Outfit_900Black"
+        : "Outfit_400Regular",
       marginTop: verticalSpacing,
       marginBottom: verticalSpacing,
       marginLeft: horizontalSpacing,

@@ -56,7 +56,8 @@ const Input = ({
       fontSize: 18,
       color: theme.pallete.text.light,
       flex: 1,
-      marginLeft: 10
+      marginLeft: 10,
+      fontFamily: "Outfit_400Regular"
     },
     errorMessage: {
       color: theme.pallete.error.main,

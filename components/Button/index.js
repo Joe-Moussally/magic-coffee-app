@@ -48,7 +48,10 @@ const Button = ({
           {icon && React.cloneElement(icon, { color: "white", size: 24 })}
           <Text
             style={{
-              color: theme.pallete.text.main,
+              color:
+                variant === "link" || variant === "blank"
+                  ? theme.pallete.text.main
+                  : "red",
               fontSize: 19,
               fontWeight: 700
             }}
