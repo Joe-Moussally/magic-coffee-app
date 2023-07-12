@@ -9,6 +9,7 @@ import { StatusBar } from "expo-status-bar"
 
 // ** Hooks Imports
 import useTheme from "../../../hooks/useTheme"
+import { useNavigation } from "@react-navigation/native"
 
 // ** Icons Imports
 import { Ionicons, AntDesign } from "@expo/vector-icons"
@@ -36,6 +37,7 @@ const validationSchema = yup.object().shape({
 const SignInScreen = () => {
   // ** Hooks
   const theme = useTheme()
+  const navigation = useNavigation()
 
   // ** Styles
   const styles = StyleSheet.create({
@@ -58,7 +60,7 @@ const SignInScreen = () => {
   const handleLogin = async (values) => {
     try {
       await validationSchema.validate(values)
-      console.log("SUCCESS")
+      navigation.replace("MainTabsNavigation")
     } catch (error) {
       // Validation failed, display error message
       Alert.alert("Error", error.message)
@@ -109,8 +111,7 @@ const SignInScreen = () => {
                 style={{
                   marginTop: "auto",
                   marginBottom: "20%",
-                  marginLeft: "auto",
-                  marginRight: 30
+                  marginLeft: "auto"
                 }}
                 icon={<AntDesign name="arrowright" size={10} />}
                 label="Sign In"

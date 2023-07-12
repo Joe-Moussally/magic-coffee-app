@@ -7,7 +7,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 // ** Screens Imports
 import WelcomeScreen from "../screens/WelcomeScreen"
-import SignInScreen from "../screens/user/SignInScreen"
+import SignInScreen from "../screens/user-screens/SignInScreen"
+import MainTabsNavigation from "./MainTabsNavigation"
 
 const Stack = createNativeStackNavigator()
 
@@ -29,6 +30,12 @@ const MainStackNavigation = () => {
           <Stack.Screen
             name="SignInScreen"
             component={SignInScreen}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="MainTabsNavigation"
+            component={MainTabsNavigation}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
