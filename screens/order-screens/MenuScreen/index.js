@@ -87,7 +87,12 @@ const MenuScreen = () => {
       <View style={styles.menuContainer}>
         <Typography color="white">Select your coffee</Typography>
         {menuItems.map((item) => (
-          <Text>{item.name}</Text>
+          <MenuItem
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            imgPath={item.imgPath}
+          />
         ))}
       </View>
     </View>
