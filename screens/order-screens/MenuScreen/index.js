@@ -47,7 +47,10 @@ const MenuScreen = () => {
     menuContainer: {
       backgroundColor: theme.pallete.primary.main,
       flex: 1,
-      zIndex: 0
+      zIndex: 0,
+      borderTopLeftRadius: 25,
+      borderTopRightRadius: 25,
+      padding: 25
     }
   })
   return (
