@@ -2,7 +2,7 @@
 import React from "react"
 
 // ** React Native Imports
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, ScrollView } from "react-native"
 
 // ** Navigation Imports
 import { useNavigation } from "@react-navigation/native"
@@ -52,8 +52,15 @@ const MenuScreen = () => {
       flex: 1,
       zIndex: 0,
       borderTopLeftRadius: 25,
-      borderTopRightRadius: 25,
-      padding: 25
+      borderTopRightRadius: 25
+    },
+    itemsContainer: {
+      padding: 25,
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap",
+      gap: 25,
+      paddingBottom: 180
     }
   })
   return (
@@ -85,15 +92,21 @@ const MenuScreen = () => {
 
       {/* Menu Container */}
       <View style={styles.menuContainer}>
-        <Typography color="white">Select your coffee</Typography>
-        {menuItems.map((item) => (
-          <MenuItem
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            imgPath={item.imgPath}
-          />
-        ))}
+        <Typography color="white" style={{ padding: 25 }}>
+          Select your coffee
+        </Typography>
+        <ScrollView>
+          <View style={styles.itemsContainer}>
+            {menuItems.map((item) => (
+              <MenuItem
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                imgSrc={item.imgSrc}
+              />
+            ))}
+          </View>
+        </ScrollView>
       </View>
     </View>
   )

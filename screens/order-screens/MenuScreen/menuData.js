@@ -1,54 +1,53 @@
-const baseImgPath = "assets/images/menu-items"
 const menuItems = [
   {
     id: 1,
     name: "Americano",
-    imgPath: `${baseImgPath}/americano.png`
+    imgSrc: require("../../../assets/images/menu-items/americano.png")
   },
   {
     id: 2,
     name: "Cappuccino",
-    imgPath: `${baseImgPath}/cappuccino.png`
+    imgSrc: require("../../../assets/images/menu-items/cappuccino.png")
   },
   {
     id: 3,
     name: "Latte",
-    imgPath: `${baseImgPath}/latte.png`
+    imgSrc: require("../../../assets/images/menu-items/latte.png")
   },
   {
     id: 4,
     name: "Hot Chocolate",
-    imgPath: `${baseImgPath}/raf.png`
+    imgSrc: require("../../../assets/images/menu-items/raf.png")
   },
   {
     id: 5,
     name: "Caffè mocha",
-    imgPath: `${baseImgPath}/latte.png`
+    imgSrc: require("../../../assets/images/menu-items/latte.png")
   },
   {
     id: 6,
     name: "Espresso",
-    imgPath: `${baseImgPath}/espresso.png`
+    imgSrc: require("../../../assets/images/menu-items/espresso.png")
   },
   {
     id: 7,
     name: "Flat White",
-    imgPath: `${baseImgPath}/flat-white.png`
+    imgSrc: require("../../../assets/images/menu-items/flat-white.png")
   },
   {
     id: 8,
     name: "White Chocolate",
-    imgPath: `${baseImgPath}/flat-white.png`
+    imgSrc: require("../../../assets/images/menu-items/flat-white.png")
   },
   {
     id: 9,
     name: "Néscafe",
-    imgPath: `${baseImgPath}/cappuccino.png`
+    imgSrc: require("../../../assets/images/menu-items/cappuccino.png")
   },
   {
     id: 10,
     name: "Raf",
-    imgPath: `${baseImgPath}/raf.png`
+    imgSrc: require("../../../assets/images/menu-items/raf.png")
   }
 ]
 
