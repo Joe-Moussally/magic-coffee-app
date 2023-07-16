@@ -38,7 +38,7 @@ const Typography = ({
           ? theme.pallete.info.main
           : color === "gray"
           ? theme.pallete.gray.main
-          : theme.pallete.text.main,
+          : color ?? theme.pallete.text.main,
       textAlign: center && "center",
       fontFamily: title
         ? "Outfit_600SemiBold"

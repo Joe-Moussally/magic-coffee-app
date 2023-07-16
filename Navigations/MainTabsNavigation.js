@@ -2,7 +2,11 @@
 import React from "react"
 
 // ** React Native Imports
-import { View, StyleSheet, SafeAreaView } from "react-native"
+import { View, StyleSheet } from "react-native"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+
+// ** Expo Imports
+import { StatusBar } from "expo-status-bar"
 
 // ** React Navigation Imports
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
@@ -17,19 +21,24 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons"
 import OrderStackNavigation from "../Navigations/OrderStackNavigation"
 import RewardsStackNavigation from "../Navigations/RewardsStackNavigation"
 import MyOrdersStackNavigation from "../Navigations/MyOrdersStackNavigation"
-// import { StatusBar } from "expo-status-bar"
-import { StatusBar } from "react-native"
 
 const MainTabsNavigation = () => {
   // ** Hooks
   const theme = useTheme()
 
-  const STATUSBAR_HEIGHT = StatusBar.currentHeight
-  console.log(STATUSBAR_HEIGHT)
-
+  // ** Navigation
   const Tab = createBottomTabNavigator()
 
+  // ** Safe Area
+  const insets = useSafeAreaInsets()
+
+  // ** Styles
   const styles = StyleSheet.create({
+    mainContainer: {
+      height: "100%",
+      backgroundColor: theme.pallete.background.main,
+      paddingTop: insets.top
+    },
     labelStyle: {
       display: "none"
     },
@@ -38,21 +47,21 @@ const MainTabsNavigation = () => {
       marginHorizontal: 20,
       display: "flex",
       paddingBottom: 0,
-      shadowColor: "#e3e3e3",
+      shadowColor: "#00000017",
       shadowOffset: {
         height: 0,
         width: 0
       },
       elevation: 4,
       shadowOpacity: 1,
-      shadowRadius: 10
+      shadowRadius: 10,
+      position: "absolute",
+      bottom: insets.bottom
     }
   })
 
   return (
-    <SafeAreaView
-      style={{ height: "100%", backgroundColor: theme.pallete.background.main }}
-    >
+    <View style={styles.mainContainer}>
       <StatusBar style="dark" />
       <Tab.Navigator
         tabBarOptions={{
@@ -108,7 +117,7 @@ const MainTabsNavigation = () => {
           }}
         />
       </Tab.Navigator>
-    </SafeAreaView>
+    </View>
   )
 }
 

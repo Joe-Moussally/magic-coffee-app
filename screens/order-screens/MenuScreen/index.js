@@ -43,6 +43,11 @@ const MenuScreen = () => {
     headerRight: {
       flexDirection: "row",
       alignItems: "center"
+    },
+    menuContainer: {
+      backgroundColor: theme.pallete.primary.main,
+      flex: 1,
+      zIndex: 0
     }
   })
   return (
@@ -70,6 +75,11 @@ const MenuScreen = () => {
             variant="blank"
           />
         </View>
+      </View>
+
+      {/* Menu Container */}
+      <View style={styles.menuContainer}>
+        <Typography color="white">Select your coffee</Typography>
       </View>
     </View>
   )
