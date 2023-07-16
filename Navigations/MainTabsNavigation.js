@@ -2,7 +2,7 @@
 import React from "react"
 
 // ** React Native Imports
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, SafeAreaView } from "react-native"
 
 // ** React Navigation Imports
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
@@ -17,6 +17,7 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons"
 import OrderStackNavigation from "../Navigations/OrderStackNavigation"
 import RewardsStackNavigation from "../Navigations/RewardsStackNavigation"
 import MyOrdersStackNavigation from "../Navigations/MyOrdersStackNavigation"
+import { StatusBar } from "expo-status-bar"
 
 const MainTabsNavigation = () => {
   // ** Hooks
@@ -30,68 +31,82 @@ const MainTabsNavigation = () => {
     },
     tabBarStyle: {
       borderRadius: 30,
-      marginBottom: 20,
       marginHorizontal: 20,
       display: "flex",
-      paddingBottom: 0
+      paddingBottom: 0,
+      shadowColor: "#e3e3e3",
+      shadowOffset: {
+        height: 0,
+        width: 0
+      },
+      elevation: 4,
+      shadowOpacity: 1,
+      shadowRadius: 10
     }
   })
 
   return (
-    <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: theme.pallete.primary.main,
-        inactiveTintColor: theme.pallete.gray.main,
-        labelStyle: styles.labelStyle
-      }}
-      screenOptions={{
-        // activeTintColor: theme.pallete.primary.main,
-        // inactiveTintColor: theme.pallete.gray.main,
-        // style: styles.tabBarStyle,
-        // labelStyle: styles.labelStyle
-        tabBarStyle: styles.tabBarStyle,
-        headerShown: false,
-        tabBarShowLabel: false
-      }}
-      initialRouteName="OrderStackNavigation"
-    >
-      <Tab.Screen
-        name="OrderStackNavigation"
-        component={OrderStackNavigation}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="storefront-outline"
-              size={size + 10}
-              color={color}
-              // style={{ marginTop: "auto" }}
-            />
-          )
+    <SafeAreaView style={{ height: "100%" }}>
+      <StatusBar style="dark" />
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: theme.pallete.primary.main,
+          inactiveTintColor: theme.pallete.gray.main,
+          labelStyle: styles.labelStyle
         }}
-      />
-      <Tab.Screen
-        name="MyOrdersStackNavigation"
-        component={MyOrdersStackNavigation}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="wallet-giftcard"
-              size={size + 10}
-              color={color}
-            />
-          )
+        screenOptions={{
+          // activeTintColor: theme.pallete.primary.main,
+          // inactiveTintColor: theme.pallete.gray.main,
+          // style: styles.tabBarStyle,
+          // labelStyle: styles.labelStyle
+          tabBarStyle: styles.tabBarStyle,
+          headerShown: false,
+          tabBarShowLabel: false
         }}
-      />
-      <Tab.Screen
-        name="RewardsStackNavigation"
-        component={RewardsStackNavigation}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="receipt-long" size={size + 10} color={color} />
-          )
-        }}
-      />
-    </Tab.Navigator>
+        initialRouteName="OrderStackNavigation"
+      >
+        <Tab.Screen
+          name="OrderStackNavigation"
+          component={OrderStackNavigation}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="storefront-outline"
+                size={size + 10}
+                color={color}
+                // style={{ marginTop: "auto" }}
+              />
+            )
+          }}
+        />
+        <Tab.Screen
+          name="MyOrdersStackNavigation"
+          component={MyOrdersStackNavigation}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="wallet-giftcard"
+                size={size + 10}
+                color={color}
+              />
+            )
+          }}
+        />
+        <Tab.Screen
+          name="RewardsStackNavigation"
+          component={RewardsStackNavigation}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons
+                name="receipt-long"
+                size={size + 10}
+                color={color}
+              />
+            )
+          }}
+        />
+      </Tab.Navigator>
+    </SafeAreaView>
   )
 }
 
