@@ -17,23 +17,27 @@ const MenuItem = ({ id, name, imgSrc }) => {
   // ** Styles
   const styles = StyleSheet.create({
     container: {
-      width: "45%",
-      padding: 28,
-      aspectRatio: 1 / 1,
-      borderRadius: 15,
-      backgroundColor: theme.pallete.background.main,
-      display: "flex",
+      width: "100%",
+      height: 120,
       alignItems: "center",
-      justifyContent: "center",
-      gap: 10
+      justifyContent: "space-between"
+    },
+    touchableContainer: {
+      width: "46%",
+      padding: 28,
+      borderRadius: 15,
+      backgroundColor: theme.pallete.background.main
+    },
+    img: {
+      resizeMode: "contain"
     }
   })
 
   return (
-    <TouchableOpacity style={styles.container}>
-      <View>
-        <Image source={imgSrc} />
-        <Typography center color="success">
+    <TouchableOpacity style={styles.touchableContainer}>
+      <View style={styles.container}>
+        <Image source={imgSrc} style={styles.img} />
+        <Typography center color="success" fontSize={17}>
           {name}
         </Typography>
       </View>
