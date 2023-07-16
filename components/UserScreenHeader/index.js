@@ -2,7 +2,7 @@
 import React from "react"
 
 // ** React Native Imports
-import { View, Text, StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 
 // ** Icons Imoprts
 import { AntDesign } from "@expo/vector-icons"
@@ -11,8 +11,8 @@ import { AntDesign } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 
 // ** Components Imports
-import Button from "../Button"
-import Typography from "../Typography"
+import Button from "../@core/Button"
+import Typography from "../@core/Typography"
 
 const UserScreenHeader = ({ title, secondaryTitle, hideBackButton }) => {
   // ** Hooks Imports

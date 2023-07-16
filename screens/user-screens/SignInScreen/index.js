@@ -19,9 +19,9 @@ import * as yup from "yup"
 import { Formik } from "formik"
 
 // ** Component Imports
-import Button from "../../../components/Button"
-import Input from "../../../components/Input"
-import Typography from "../../../components/Typography"
+import Input from "../../../components/@core/Input"
+import Button from "../../../components/@core/Button"
+import Typography from "../../../components/@core/Typography"
 import { SafeAreaView } from "react-native-safe-area-context"
 import UserScreenHeader from "../../../components/UserScreenHeader"
 

@@ -17,17 +17,39 @@ const menuItems = [
   },
   {
     id: 4,
-    name: "Flat White",
-    imgPath: `${baseImgPath}/flat-white.png`
+    name: "Hot Chocolate",
+    imgPath: `${baseImgPath}/raf.png`
   },
   {
     id: 5,
-    name: "Raf",
-    imgPath: `${baseImgPath}/raf.png`
+    name: "Caffè mocha",
+    imgPath: `${baseImgPath}/latte.png`
   },
   {
     id: 6,
     name: "Espresso",
     imgPath: `${baseImgPath}/espresso.png`
+  },
+  {
+    id: 7,
+    name: "Flat White",
+    imgPath: `${baseImgPath}/flat-white.png`
+  },
+  {
+    id: 8,
+    name: "White Chocolate",
+    imgPath: `${baseImgPath}/flat-white.png`
+  },
+  {
+    id: 9,
+    name: "Néscafe",
+    imgPath: `${baseImgPath}/cappuccino.png`
+  },
+  {
+    id: 10,
+    name: "Raf",
+    imgPath: `${baseImgPath}/raf.png`
   }
 ]
+
+export default menuItems

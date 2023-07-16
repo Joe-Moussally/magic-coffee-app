@@ -14,7 +14,7 @@ import {
 import { Feather } from "@expo/vector-icons"
 
 // ** Hooks Imports
-import useTheme from "../../hooks/useTheme"
+import useTheme from "../../../hooks/useTheme"
 
 const Input = ({
   type = "text",

@@ -5,7 +5,7 @@ import React from "react"
 import { Text, StyleSheet } from "react-native"
 
 // ** Hooks Imports
-import useTheme from "../../hooks/useTheme"
+import useTheme from "../../../hooks/useTheme"
 
 const Typography = ({
   fontSize = 20,

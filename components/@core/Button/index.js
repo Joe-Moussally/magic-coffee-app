@@ -5,7 +5,7 @@ import React from "react"
 import { TouchableOpacity } from "react-native"
 
 // ** Hooks Imports
-import useTheme from "../../hooks/useTheme"
+import useTheme from "../../../hooks/useTheme"
 
 // ** Components Imports
 import Typography from "../Typography"

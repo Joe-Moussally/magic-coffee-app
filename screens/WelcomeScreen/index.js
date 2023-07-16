@@ -14,8 +14,8 @@ import { AntDesign } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 
 // ** Components Imports
-import Button from "../../components/Button"
-import Typography from "../../components/Typography"
+import Button from "../../components/@core/Button"
+import Typography from "../../components/@core/Typography"
 
 const WelcomeScreen = () => {
   const navigation = useNavigation()

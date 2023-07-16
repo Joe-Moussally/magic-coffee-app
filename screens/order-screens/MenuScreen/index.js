@@ -10,14 +10,17 @@ import { useNavigation } from "@react-navigation/native"
 // ** Icons Imports
 import { Feather } from "@expo/vector-icons"
 import { Octicons } from "@expo/vector-icons"
-import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 // ** Hooks Imports
 import useTheme from "../../../hooks/useTheme"
 
 // ** Component Imports
-import Button from "../../../components/Button"
-import Typography from "../../../components/Typography"
+import Button from "../../../components/@core/Button"
+import MenuItem from "../../../components/MenuItem"
+import Typography from "../../../components/@core/Typography"
+
+// ** Data Imports
+import menuItems from "./menuData"
 
 const MenuScreen = () => {
   // ** Hooks
@@ -83,6 +86,9 @@ const MenuScreen = () => {
       {/* Menu Container */}
       <View style={styles.menuContainer}>
         <Typography color="white">Select your coffee</Typography>
+        {menuItems.map((item) => (
+          <Text>{item.name}</Text>
+        ))}
       </View>
     </View>
   )
