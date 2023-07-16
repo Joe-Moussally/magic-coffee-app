@@ -21,6 +21,7 @@ const Button = ({
   label,
   iconButton,
   icon,
+  iconSize = 29,
   iconPosition = "left", // left - right
   variant = "filled", // filled - outlined - blank - link
   onPress = () => {},
@@ -51,7 +52,7 @@ const Button = ({
         <>
           {icon &&
             iconPosition === "left" &&
-            React.cloneElement(icon, { color: "white", size: 20 })}
+            React.cloneElement(icon, { color: "white", size: iconSize })}
           <Typography
             style={{
               color:
@@ -66,7 +67,7 @@ const Button = ({
           </Typography>
           {icon &&
             iconPosition === "right" &&
-            React.cloneElement(icon, { color: "white", size: 20 })}
+            React.cloneElement(icon, { color: "white", size: iconSize })}
         </>
       ) : (
         React.cloneElement(icon, {
@@ -74,7 +75,7 @@ const Button = ({
             variant === "blank"
               ? theme.pallete.text.light
               : theme.pallete.contrastText.light,
-          size: 24
+          size: iconSize
         })
       )}
     </TouchableOpacity>

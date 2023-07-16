@@ -17,11 +17,15 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons"
 import OrderStackNavigation from "../Navigations/OrderStackNavigation"
 import RewardsStackNavigation from "../Navigations/RewardsStackNavigation"
 import MyOrdersStackNavigation from "../Navigations/MyOrdersStackNavigation"
-import { StatusBar } from "expo-status-bar"
+// import { StatusBar } from "expo-status-bar"
+import { StatusBar } from "react-native"
 
 const MainTabsNavigation = () => {
   // ** Hooks
   const theme = useTheme()
+
+  const STATUSBAR_HEIGHT = StatusBar.currentHeight
+  console.log(STATUSBAR_HEIGHT)
 
   const Tab = createBottomTabNavigator()
 
@@ -46,7 +50,9 @@ const MainTabsNavigation = () => {
   })
 
   return (
-    <SafeAreaView style={{ height: "100%" }}>
+    <SafeAreaView
+      style={{ height: "100%", backgroundColor: theme.pallete.background.main }}
+    >
       <StatusBar style="dark" />
       <Tab.Navigator
         tabBarOptions={{
@@ -55,10 +61,6 @@ const MainTabsNavigation = () => {
           labelStyle: styles.labelStyle
         }}
         screenOptions={{
-          // activeTintColor: theme.pallete.primary.main,
-          // inactiveTintColor: theme.pallete.gray.main,
-          // style: styles.tabBarStyle,
-          // labelStyle: styles.labelStyle
           tabBarStyle: styles.tabBarStyle,
           headerShown: false,
           tabBarShowLabel: false

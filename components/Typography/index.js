@@ -25,7 +25,20 @@ const Typography = ({
   const styles = StyleSheet.create({
     text: {
       fontSize: title ? 37 : fontSize,
-      color: color ?? theme.pallete.text.light,
+      color:
+        color === "primary"
+          ? theme.pallete.primary.main
+          : color === "secondary"
+          ? theme.pallete.secondary.main
+          : color === "error"
+          ? theme.pallete.error.main
+          : color === "warning"
+          ? theme.pallete.warning.main
+          : color === "info"
+          ? theme.pallete.info.main
+          : color === "gray"
+          ? theme.pallete.gray.main
+          : theme.pallete.text.main,
       textAlign: center && "center",
       fontFamily: title
         ? "Outfit_600SemiBold"

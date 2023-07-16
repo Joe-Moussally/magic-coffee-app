@@ -38,6 +38,11 @@ const useTheme = () => {
       },
       gray: {
         main: "#C1C7D0"
+      },
+      background: {
+        main: "#FFF",
+        light: "#FFF",
+        dark: "#324A59"
       }
     },
     spacing: {

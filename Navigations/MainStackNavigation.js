@@ -17,7 +17,7 @@ const MainStackNavigation = () => {
     <NavigationContainer>
       <View style={{ flex: 1 }}>
         <Stack.Navigator
-          initialRouteName="WelcomeScreen"
+          initialRouteName="MainTabsNavigation"
           screenOptions={{
             headerShadowVisible: false
           }}
