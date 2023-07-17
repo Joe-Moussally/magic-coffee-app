@@ -6,6 +6,7 @@ import { View, Text } from "react-native"
 
 // ** Screens Imports
 import MenuScreen from "../screens/order-screens/MenuScreen"
+import OrderOptionsScreen from "../screens/order-screens/OrderOptionsScreen"
 
 // ** Navigation Imports
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
@@ -24,6 +25,11 @@ const OrderStackNavigation = () => {
         <Stack.Screen
           name="MenuScreen"
           component={MenuScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="OrderOptionsScreen"
+          component={OrderOptionsScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

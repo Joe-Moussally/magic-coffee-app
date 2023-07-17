@@ -39,6 +39,9 @@ const useTheme = () => {
       gray: {
         main: "#C1C7D0"
       },
+      lightGray: {
+        main: "#F7F8FB"
+      },
       background: {
         main: "#FFF",
         light: "#FFF",
